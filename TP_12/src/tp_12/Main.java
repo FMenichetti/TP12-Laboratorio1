@@ -58,12 +58,12 @@ public class Main {
             String sql = "SELECT * FROM `empleado` ORDER BY id_empleado ASC LIMIT 1";
             Statement st2 = con.createStatement();
             ResultSet fila = st2.executeQuery(sql);
-            
+
             while (fila.next()) {
                 int id_empleado = fila.getInt("id_empleado");
                 sql = "UPDATE `empleado` SET estado = 0 WHERE id_empleado= " + id_empleado + ";";
             }
-            
+
             int num = st.executeUpdate(sql); //Paso 4
             if (num > 0) {
                 JOptionPane.showMessageDialog(null, "Se modifico el estado satisfactoriamente");
